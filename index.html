@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>16BodyPersonalities</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="WAVE"> <!-- ←ここでテーマ切替（WAVE/NATURAL/STRAIGHT） -->
+  <header class="site-header">
+  <a class="brand" href="index.html">16Body<span>Personalities</span></a>
+
+  <!-- PC表示：右上に並ぶ -->
+  <nav class="nav-links">
+    <a href="index.html" class="chip-btn">トップ</a>
+    <a href="gallery.html" class="chip-btn">タイプギャラリー</a>
+    <a href="contact.html" class="chip-btn">お問い合わせ</a>
+  </nav>
+
+  <!-- モバイル表示：ハンバーガー -->
+  <button class="hamburger" id="navOpen" aria-label="メニュー" aria-controls="drawer" aria-expanded="false">
+    <!-- 3本線アイコン（SVG） -->
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+</header>
+
+<!-- ドロワー本体 -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-brand">16BodyPersonalities</span>
+    <button class="drawer-close" id="navClose" aria-label="閉じる">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="drawer-links">
+    <a href="app.html" class="drawer-item">診断をはじめる</a>
+    <a href="gallery.html" class="drawer-item">タイプギャラリー</a>
+    <a href="index.html" class="drawer-item">トップ</a>
+    <hr>
+    <a href="privacy.html" class="drawer-item">プライバシー</a>
+    <a href="terms.html" class="drawer-item">利用規約</a>
+    <a href="contact.html" class="drawer-item">お問い合わせ</a>
+  </nav>
+</aside>
+
+<!-- 半透明オーバーレイ -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="topbar-spacer"></div> <!-- ナビの高さぶん余白（重なり防止） -->
+    <header>
+      <h1>16BodyPersonalities</h1>
+      <span class="badge">ver.3</span>
+    </header>
+
+    <!-- ===== カード1：イントロ ===== -->
+    <section class="card hero-card">
+      <h2>あなたのBody Personalitiesを診断</h2>
+      <p class="muted">16タイプの骨格診断で、自分の構造を知ろう。</p>
+      <div class="controls">
+        <button onclick="location.href='app.html'">診断をはじめる</button>
+      </div>
+    </section>
+
+   <section class="card" style="margin-top:12px;">
+  <h3>全体の傾向</h3>
+  <p class="muted small">直近データからの自動集計</p>
+
+  <!-- 3ベースのドーナツ -->
+  <div class="donut-row">
+    <div class="donut-card" data-base="WAVE" style="position:relative;padding:8px;border:1px solid var(--border,#ddd);border-radius:12px;">
+      <div class="donut" data-key="WAVE" style="width:140px;height:140px;margin:0 auto;position:relative;">
+        <svg viewBox="0 0 120 120" class="ring" style="width:100%;height:100%;">
+          <circle cx="60" cy="60" r="48" class="track" style="fill:none;stroke:#eee;stroke-width:16;"></circle>
+          <circle cx="60" cy="60" r="48" class="prog" data-prog style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:0 999;"></circle>
+        </svg>
+        <div class="donut-center" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="donut-title" style="font-weight:700;">WAVE</div>
+          <div class="donut-num" data-num="WAVE" style="font-size:18px;">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NATURAL -->
+    <div class="donut-card" data-base="NATURAL" style="position:relative;padding:8px;border:1px solid var(--border,#ddd);border-radius:12px;">
+      <div class="donut" data-key="NATURAL" style="width:140px;height:140px;margin:0 auto;position:relative;">
+        <svg viewBox="0 0 120 120" class="ring" style="width:100%;height:100%;">
+          <circle cx="60" cy="60" r="48" class="track" style="fill:none;stroke:#eee;stroke-width:16;"></circle>
+          <circle cx="60" cy="60" r="48" class="prog" data-prog style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:0 999;"></circle>
+        </svg>
+        <div class="donut-center" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="donut-title" style="font-weight:700;">NATURAL</div>
+          <div class="donut-num" data-num="NATURAL" style="font-size:18px;">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRAIGHT -->
+    <div class="donut-card" data-base="STRAIGHT" style="position:relative;padding:8px;border:1px solid var(--border,#ddd);border-radius:12px;">
+      <div class="donut" data-key="STRAIGHT" style="width:140px;height:140px;margin:0 auto;position:relative;">
+        <svg viewBox="0 0 120 120" class="ring" style="width:100%;height:100%;">
+          <circle cx="60" cy="60" r="48" class="track" style="fill:none;stroke:#eee;stroke-width:16;"></circle>
+          <circle cx="60" cy="60" r="48" class="prog" data-prog style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;stroke-dasharray:0 999;"></circle>
+        </svg>
+        <div class="donut-center" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <div class="donut-title" style="font-weight:700;">STRAIGHT</div>
+          <div class="donut-num" data-num="STRAIGHT" style="font-size:18px;">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16タイプの表 -->
+  <h3 style="margin:0 0 6px;">16タイプ存在割合</h3>
+  <div class="type-grid" id="typeGridTop"></div>
+</section>
+
+    <!-- ===== カード2：特徴説明 ===== -->
+    <section class="card">
+      <h3>この診断の特徴</h3>
+      <ul>
+        <li>骨格の特徴（ストレート / ウェーブ / ナチュラル）をもとに16タイプに分析</li>
+        <li>これまでなかった深度で16タイプを導出</li>
+        <li>ファッション・印象傾向をトータルで提示</li>
+      </ul>
+    </section>
+
+    <!-- ===== カード3：ギャラリー or 結果一覧 ===== -->
+   <!-- ===== カード3：ギャラリー導線 ===== -->
+<section class="card">
+  <h3>タイプギャラリー</h3>
+  <p class="muted">全16タイプを、WAVE / NATURAL / STRAIGHT に分けて一覧できます。</p>
+  <div class="controls">
+    <button onclick="location.href='gallery.html'">ギャラリーを見る</button>
+    <button class="secondary" onclick="location.href='app.html'">診断する</button>
+  </div>
+</section>
+    <footer class="footer">
+      <span class="small">© 2025 16BodyPersonalities Project</span>
+      <span>
+    <a class="muted" href="terms.html">Terms</a> ・
+    <a class="muted" href="privacy.html">Privacy</a>
+  </span>
+</footer>
+    </footer>
+  </div>
+  
+  <script>
+/* ==== GASエンドポイント ==== */
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxb93EpsZ6S0Xizk9PdBEJC8stOJtYLgJA4X92m_9Q2tulQRgSunmk-xdxIHevIC15d/exec";
+
+/* ==== 16タイプ（軽量メタ） ==== */
+const CODE_META = {
+  BNLS:{emoji:'🐨', label:'骨格コアラ'},    MNLC:{emoji:'🐺', label:'骨格ウルフ'},
+  MWLC:{emoji:'🦋', label:'骨格バタフライ'}, MWLS:{emoji:'🐹', label:'骨格ハムスター'},
+  MNLS:{emoji:'🕊', label:'骨格ドーブ'},     BNLC:{emoji:'🐻', label:'骨格テディ'},
+  BWUC:{emoji:'🦄', label:'骨格ユニコーン'},  BWUS:{emoji:'🦅', label:'骨格イーグル'},
+  BWLC:{emoji:'🦊', label:'骨格フォックス'},  BWLS:{emoji:'🦌', label:'骨格バンビ'},
+  BNUS:{emoji:'🐆', label:'骨格パンサー'},    MWUC:{emoji:'🦈', label:'骨格シャーク'},
+  MNUC:{emoji:'🐅', label:'骨格タイガー'},    MNUS:{emoji:'🦚', label:'骨格ピーコック'},
+  MWUS:{emoji:'🐬', label:'骨格ドルフィン'},  BNUC:{emoji:'🦉', label:'骨格オウル'},
+};
+const ALL_CODES = Object.keys(CODE_META);
+
+/* ==== メイン描画 ==== */
+async function fetchStats(){
+  const url = GAS_URL + '?stats=1';
+  const res = { total:0, byType:{}, byBase:{WAVE:0,NATURAL:0,STRAIGHT:0} };
+  try{
+    const r = await fetch(url, { cache:'no-store' });
+    if (!r.ok) return res;
+    const data = await r.json();
+    res.total  = data.total  || 0;
+    res.byType = data.byType || {};
+    res.byBase = data.byBase || { WAVE:0, NATURAL:0, STRAIGHT:0 };
+  }catch(e){
+    console.warn('[index] fetch stats error:', e);
+  }
+  return res;
+}
+
+function renderDonut(base, count, total){
+  const donut = document.querySelector(`.donut[data-key="${base}"]`);
+  const numEl = document.querySelector(`.donut-num[data-num="${base}"]`);
+  if (!donut || !numEl) return;
+
+  const pct = total ? Math.round((count/total)*100) : 0;
+  numEl.textContent = pct + '%';
+
+  const C = 2 * Math.PI * 48; // r=48
+  const dash = (pct/100) * C;
+  const prog = donut.querySelector('[data-prog]');
+  if (prog) prog.style.strokeDasharray = `${dash} ${C-dash}`;
+}
+
+function renderTypeGridTop(byType, total){
+  const host = document.getElementById('typeGridTop'); // ← ここが修正ポイント（ID一致）
+  if (!host) return;
+
+  const max = Math.max(...ALL_CODES.map(c => byType[c] || 0), 1);
+  host.innerHTML = ALL_CODES.map(code=>{
+    const n   = byType[code] || 0;
+    const pct = total ? Math.round(n / total * 100) : 0;
+    const w   = Math.max(3, Math.round((n / max) * 100));
+    const {emoji, label} = CODE_META[code] || {emoji:'🧭', label:code};
+    return `
+      <div class="type-cell" data-code="${code}" title="${code}">
+        <div class="type-ico">${emoji}</div>
+        <div class="type-meta">
+          <div class="type-name">${label} <span class="muted">(${code})</span></div>
+          <div class="type-bar"><i style="width:${w}%"></i></div>
+          <div class="small muted" style="margin-top:4px">${pct}% ・ ${n}件</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+async function renderIndex(){
+  const stats = await fetchStats();
+  // ドーナツ（3ベース）
+  renderDonut('WAVE',     stats.byBase.WAVE||0,     stats.total||0);
+  renderDonut('NATURAL',  stats.byBase.NATURAL||0,  stats.total||0);
+  renderDonut('STRAIGHT', stats.byBase.STRAIGHT||0, stats.total||0);
+
+  // 16タイプ表
+  renderTypeGridTop(stats.byType||{}, stats.total||0);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  renderIndex();
+  setInterval(renderIndex, 60000); // 任意
+});
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  const openBtn  = document.getElementById('navOpen');
+  const closeBtn = document.getElementById('navClose');
+  const drawer   = document.getElementById('drawer');
+  const scrim    = document.getElementById('scrim');
+
+  if(!openBtn || !closeBtn || !drawer || !scrim){
+    console.warn('[drawer] 必要な要素が見つかりません');
+    return;
+  }
+
+  function open(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    openBtn.setAttribute('aria-expanded','true');
+    scrim.hidden = false;
+    document.documentElement.style.overflow = 'hidden'; // 背景固定
+  }
+  function close(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    openBtn.setAttribute('aria-expanded','false');
+    scrim.hidden = true;
+    document.documentElement.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', open,  { passive: true });
+  closeBtn.addEventListener('click', close, { passive: true });
+  scrim.addEventListener('click', close,    { passive: true });
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+});
+</script>
+</body>
+</html>

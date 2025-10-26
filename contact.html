@@ -1,0 +1,186 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>お問い合わせ | 16BodyPersonalities</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .topbar-spacer{ height: var(--topbar-h,64px); } /* sticky重なり回避 */
+    .contact-hero{ padding:20px; border-radius:16px; background:var(--card); border:1px solid var(--border); box-shadow:0 6px 16px rgba(0,0,0,.08); }
+    .form{ display:grid; gap:14px; margin-top:14px; }
+    .form .row{ display:grid; gap:8px; }
+    .form label{ font-weight:600; font-size:14px; }
+    .form input,.form textarea, .form select{
+      width:100%; padding:12px 14px; border:1px solid var(--border);
+      border-radius:12px; background:var(--bg); font:inherit; outline:none;
+    }
+    .form textarea{ min-height:140px; resize:vertical; }
+    .form small{ color:var(--muted); }
+    .notice{ background:color-mix(in oklab, var(--accent) 10%, transparent); border:1px solid color-mix(in oklab, var(--accent) 35%, transparent); padding:10px 12px; border-radius:12px; font-size:13px; }
+  </style>
+</head>
+<body data-theme="WAVE">
+  <div class="wrap">
+
+    <!-- かわいいトップナビ -->
+    <header class="site-header">
+  <a class="brand" href="index.html">16Body<span>Personalities</span></a>
+
+  <!-- PC表示：右上に並ぶ -->
+  <nav class="nav-links">
+    <a href="index.html" class="chip-btn">トップ</a>
+    <a href="gallery.html" class="chip-btn">タイプギャラリー</a>
+    <a href="contact.html" class="chip-btn">お問い合わせ</a>
+  </nav>
+
+  <!-- モバイル表示：ハンバーガー -->
+  <button class="hamburger" id="navOpen" aria-label="メニュー" aria-controls="drawer" aria-expanded="false">
+    <!-- 3本線アイコン（SVG） -->
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+</header>
+
+<!-- ドロワー本体 -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-brand">16BodyPersonalities</span>
+    <button class="drawer-close" id="navClose" aria-label="閉じる">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="drawer-links">
+    <a href="app.html" class="drawer-item">診断をはじめる</a>
+    <a href="gallery.html" class="drawer-item">タイプギャラリー</a>
+    <a href="index.html" class="drawer-item">トップ</a>
+    <hr>
+    <a href="privacy.html" class="drawer-item">プライバシー</a>
+    <a href="terms.html" class="drawer-item">利用規約</a>
+    <a href="contact.html" class="drawer-item">お問い合わせ</a>
+  </nav>
+</aside>
+
+<!-- 半透明オーバーレイ -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="topbar-spacer"></div> <!-- ナビの高さぶん余白（重なり防止） -->
+
+    <header>
+      <h1>お問い合わせ</h1>
+      <p class="muted">ご意見・ご要望・お仕事のご相談など、お気軽にどうぞ。</p>
+    </header>
+
+    <section class="card contact-hero">
+      <form class="form" id="contactForm" action="https://formspree.io/f/XXXXYYYY" method="POST">
+        <div class="row">
+          <label for="type">お問い合わせ種別</label>
+          <select id="type" name="type" required>
+            <option value="">選択してください</option>
+            <option>不具合の報告</option>
+            <option>機能のリクエスト</option>
+            <option>コラボ/取材/お仕事</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="name">お名前（任意）</label>
+          <input id="name" name="name" placeholder="例）山田 花子">
+        </div>
+
+        <div class="row">
+          <label for="email">メールアドレス <small>（返信が必要な場合）</small></label>
+          <input id="email" name="email" type="email" placeholder="example@example.com">
+        </div>
+
+        <div class="row">
+          <label for="message">内容</label>
+          <textarea id="message" name="message" required placeholder="できるだけ詳しく書いていただけると助かります。"></textarea>
+        </div>
+
+        <div class="row">
+          <label class="checkbox">
+            <input type="checkbox" name="agree" required>
+            <span>プライバシーポリシーに同意します</span>
+          </label>
+          <small>送信前に <a href="privacy.html" target="_blank" rel="noopener">プライバシー</a> をご確認ください。</small>
+        </div>
+
+        <div class="row">
+          <button class="btn cute primary" type="submit">✉️ 送信する</button>
+        </div>
+
+        <p class="notice" id="formNote" style="display:none;">送信ありがとうございます！折り返しご連絡します。</p>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <span class="small">© 2025 Kokkaku MBTI Project</span>
+      <span><a class="muted" href="terms.html">Terms</a> ・ <a class="muted" href="privacy.html">Privacy</a></span>
+    </footer>
+  </div>
+
+  <script>
+    // 成功時のミニUX（Formspreeは200返す）
+    document.getElementById('contactForm').addEventListener('submit', async (e)=>{
+      const f = e.target;
+      if (!f.action.includes('formspree.io')) return; // 何も設定してなければスルー
+      e.preventDefault();
+      const btn = f.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = '送信中…';
+      try{
+        const r = await fetch(f.action, { method:'POST', body: new FormData(f), headers: { 'Accept':'application/json' }});
+        if(r.ok){
+          f.reset();
+          document.getElementById('formNote').style.display='block';
+          btn.textContent='送信しました ✔︎';
+        }else{
+          btn.disabled=false; btn.textContent='✉️ 送信する';
+          alert('送信に失敗しました。通信環境をご確認ください。');
+        }
+      }catch{
+        btn.disabled=false; btn.textContent='✉️ 送信する';
+        alert('送信に失敗しました。時間をおいて再度お試しください。');
+      }
+    });
+  </script>
+  <script>
+window.addEventListener('DOMContentLoaded', function(){
+  const openBtn  = document.getElementById('navOpen');
+  const closeBtn = document.getElementById('navClose');
+  const drawer   = document.getElementById('drawer');
+  const scrim    = document.getElementById('scrim');
+
+  if(!openBtn || !closeBtn || !drawer || !scrim){
+    console.warn('[drawer] 必要な要素が見つかりません');
+    return;
+  }
+
+  function open(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    openBtn.setAttribute('aria-expanded','true');
+    scrim.hidden = false;
+    document.documentElement.style.overflow = 'hidden'; // 背景固定
+  }
+  function close(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    openBtn.setAttribute('aria-expanded','false');
+    scrim.hidden = true;
+    document.documentElement.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', open,  { passive: true });
+  closeBtn.addEventListener('click', close, { passive: true });
+  scrim.addEventListener('click', close,    { passive: true });
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+});
+</script>
+</body>
+</html>

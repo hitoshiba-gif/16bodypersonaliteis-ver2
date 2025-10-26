@@ -1,0 +1,193 @@
+<!-- privacy.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>プライバシーポリシー | 16BodyPersonalities</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+  <a class="brand" href="index.html">16Body<span>Personalities</span></a>
+
+  <!-- PC表示：右上に並ぶ -->
+  <nav class="nav-links">
+    <a href="index.html" class="chip-btn">トップ</a>
+    <a href="gallery.html" class="chip-btn">タイプギャラリー</a>
+    <a href="contact.html" class="chip-btn">お問い合わせ</a>
+  </nav>
+
+  <!-- モバイル表示：ハンバーガー -->
+  <button class="hamburger" id="navOpen" aria-label="メニュー" aria-controls="drawer" aria-expanded="false">
+    <!-- 3本線アイコン（SVG） -->
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+</header>
+
+<!-- ドロワー本体 -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-brand">16BodyPersonalities</span>
+    <button class="drawer-close" id="navClose" aria-label="閉じる">
+      <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="drawer-links">
+    <a href="app.html" class="drawer-item">診断をはじめる</a>
+    <a href="gallery.html" class="drawer-item">タイプギャラリー</a>
+    <a href="index.html" class="drawer-item">トップ</a>
+    <hr>
+    <a href="privacy.html" class="drawer-item">プライバシー</a>
+    <a href="terms.html" class="drawer-item">利用規約</a>
+    <a href="contact.html" class="drawer-item">お問い合わせ</a>
+  </nav>
+</aside>
+
+<!-- 半透明オーバーレイ -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="topbar-spacer"></div> <!-- ナビの高さぶん余白（重なり防止） -->
+  <div class="wrap">
+   
+   
+
+    <!-- ヒーロー -->
+    <section class="card hero">
+      <h1>🔒 プライバシーポリシー</h1>
+      <p class="muted">あなたのデータは堅実に守ります。</p>
+      <p class="small muted">最終更新日：2025-01-01</p>
+    </section>
+
+    <!-- 目次 -->
+    <section class="card">
+      <h2>📚 目次</h2>
+      <ol class="small">
+        <li><a href="#what">収集する情報</a></li>
+        <li><a href="#why">利用目的</a></li>
+        <li><a href="#where">保存先・第三者提供</a></li>
+        <li><a href="#consent">同意・オプトアウト</a></li>
+        <li><a href="#retention">保存期間</a></li>
+        <li><a href="#security">安全管理</a></li>
+        <li><a href="#children">未成年の利用</a></li>
+        <li><a href="#changes">ポリシーの改定</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ol>
+    </section>
+
+    <!-- 本文 -->
+    <section id="what" class="card">
+      <h2>🧾 1. 収集する情報</h2>
+      <p>以下の情報を、<b>あなたが同意した場合のみ</b>保存します。</p>
+      <ul>
+        <li>診断結果コード（例：<code>MNLS</code>）</li>
+        <li>集計用メタデータ（タイムスタンプ、ブラウザ情報、セッションID）</li>
+      </ul>
+      <p class="muted small">※ 氏名・メールアドレス等、個人を直接特定できる情報は収集しません。</p>
+    </section>
+
+    <section id="why" class="card">
+      <h2>🎯 2. 利用目的</h2>
+      <ul>
+        <li>診断の傾向分析・品質改善</li>
+        <li>匿名統計の可視化（ダッシュボード表示など）</li>
+      </ul>
+    </section>
+
+    <section id="where" class="card">
+      <h2>🗂️ 3. 保存先・第三者提供</h2>
+      <p>Google スプレッドシート（Google Apps Script）へ保存し、同社のインフラ上で処理します。</p>
+      <ul>
+        <li>保存：Google スプレッドシート</li>
+        <li>処理：Google Apps Script（投稿/集計API）</li>
+      </ul>
+      <p class="muted small">※ 法令等に基づく場合を除き、第三者提供は行いません。</p>
+    </section>
+
+    <section id="consent" class="card">
+      <h2>🧡 4. 同意・オプトアウト</h2>
+      <ul>
+        <li>診断画面の「同意チェック」を<b>OFF</b>にすると、以後は送信されません。</li>
+        <li>過去データの削除依頼は、セッションID（診断結果ページで確認可）を添えてご連絡ください。</li>
+      </ul>
+      <p class="small muted">セッションIDはブラウザのローカル保存（<code>localStorage</code>）で管理しています。</p>
+    </section>
+
+    <section id="retention" class="card">
+      <h2>🗓️ 5. 保存期間</h2>
+      <p>統計の信頼性維持のため一定期間保存しますが、利用目的が達成されたデータは順次削除・匿名化します。</p>
+    </section>
+
+    <section id="security" class="card">
+      <h2>🛡️ 6. 安全管理</h2>
+      <ul>
+        <li>最小限の項目のみ保存（ミニマム設計）</li>
+        <li>アクセス権限の限定・監査</li>
+        <li>HTTPS経由の通信（ブラウザ → Google）</li>
+      </ul>
+    </section>
+
+    <section id="children" class="card">
+      <h2>👶 7. 未成年の利用</h2>
+      <p>13歳未満のご利用は保護者の同意が必要です。</p>
+    </section>
+
+    <section id="changes" class="card">
+      <h2>🔄 8. 改定</h2>
+      <p>本ポリシーは随時更新されます。重要な変更がある場合はサイト上でお知らせします。</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>✉️ 9. お問い合わせ</h2>
+      <p>削除依頼・質問などは下記へご連絡ください（件名に「プライバシー」を含めてください）。</p>
+      <p><a class="btn" href="hitoshiba@icloud.com">hitoshiba@icloud.com にメールする</a></p>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <span class="muted small">© 2025 16BodyPersonalities</span>
+      <span>
+        <a class="muted" href="terms.html">利用規約</a> ・
+        <a class="muted" href="privacy.html">プライバシー</a>
+      </span>
+    </footer>
+  </div>
+  <script>
+window.addEventListener('DOMContentLoaded', function(){
+  const openBtn  = document.getElementById('navOpen');
+  const closeBtn = document.getElementById('navClose');
+  const drawer   = document.getElementById('drawer');
+  const scrim    = document.getElementById('scrim');
+
+  if(!openBtn || !closeBtn || !drawer || !scrim){
+    console.warn('[drawer] 必要な要素が見つかりません');
+    return;
+  }
+
+  function open(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    openBtn.setAttribute('aria-expanded','true');
+    scrim.hidden = false;
+    document.documentElement.style.overflow = 'hidden'; // 背景固定
+  }
+  function close(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    openBtn.setAttribute('aria-expanded','false');
+    scrim.hidden = true;
+    document.documentElement.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', open,  { passive: true });
+  closeBtn.addEventListener('click', close, { passive: true });
+  scrim.addEventListener('click', close,    { passive: true });
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
+});
+</script>
+</body>
+</html>
