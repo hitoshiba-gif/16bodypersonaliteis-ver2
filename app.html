@@ -955,7 +955,15 @@ const groupHTML = brandPack ? `
           ${meta.animal?`<span class="tag">motif Animal: ${meta.animal}</span>`:''}
           <span class="tag kind">${nick}</span> 
         </div>
-        <img class="hero" src="${meta.image||''}" alt="${code} image" onerror="this.style.display='none'"/>
+        <div class="hero-image" data-base="${meta.base}">
+  <img
+    src="${meta.image || `images/${code}.jpg`}"
+    alt="${code} image"
+    loading="lazy"
+    decoding="async"
+    onerror="this.closest('.hero-image')?.classList.add('is-missing')"
+  />
+</div>
         <p class="concept">${meta.concept||''}</p>
 
         <p class="muted">4軸の平均スコア</p>
