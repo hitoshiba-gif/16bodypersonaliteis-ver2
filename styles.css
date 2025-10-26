@@ -1363,3 +1363,59 @@ body { padding-bottom: env(safe-area-inset-bottom); }
     padding: 14px 20px;
   }
 }
+
+/* ===== Result hero image（detail.html風） ===== */
+.hero-image{
+  width:100%;
+  min-height:42vh;                /* 画面に気持ち大きめに */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f7f7fa;             /* 優しい背景 */
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  transition:min-height .2s ease;
+}
+.hero-image img{
+  width:100%;
+  height:100%;
+  max-width:820px;                 /* 横の上限 */
+  max-height:80vh;                 /* 縦の上限 */
+  object-fit:contain;              /* はみ出し防止 */
+  display:block;
+  border-radius:12px;
+}
+
+/* 画像が無いときは高さを潰す（onerrorで .is-missing が付く） */
+.hero-image.is-missing{
+  min-height:0;
+  padding:0;
+  box-shadow:none;
+  background:transparent;
+}
+
+/* タイプ別にほんのり色味（任意） */
+.hero-image[data-base="WAVE"]{
+  background:linear-gradient(180deg,#fff0f6 0%, #ffffff 50%);
+}
+.hero-image[data-base="NATURAL"]{
+  background:linear-gradient(180deg,#f0fff3 0%, #ffffff 50%);
+}
+.hero-image[data-base="STRAIGHT"]{
+  background:linear-gradient(180deg,#f2f5ff 0%, #ffffff 50%);
+}
+
+/* スマホ最適化 */
+@media (max-width: 768px){
+  .hero-image{ min-height:36vh; border-radius:14px; }
+  .hero-image img{ max-width:92%; max-height:70vh; }
+}
+
+/* タグ（モチーフアニマル等）が折り返せるように */
+.tags{
+  display:flex;
+  flex-wrap:wrap;                 /* ← これで2行目に折り返し */
+  gap:6px;
+}
+.tag{ white-space:nowrap; }
